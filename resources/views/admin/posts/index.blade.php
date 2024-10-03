@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="d-flex my-3">
+                <div class="d-flex my-3 align-items-center justisfy-content-between">
                     <h2>Elenco posts</h2>
                     <a href="{{ route('admin.posts.create') }}" class="btn btn-sm btn-primary">Aggiungi post</a>
                 </div>

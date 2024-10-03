@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -38,7 +38,13 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $form_data = $request->validated();
+        $slug = Post::generateSlug($form_data['title']);
+        $form_data['slug'] = $slug;
+        $post = new Post();
+        $post->fill($form_data);
+        $post->save();
+        return redirect()->route('admin.posts.index');
     }
 
     /**
