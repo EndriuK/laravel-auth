@@ -1,3 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import '@fortawesome/fontawesome-free/css/all.css';
+
+
+header {
+    background-color: rgb(80, 80, 213);
+
+    .logo {
+        display: flex;
+        color: #fff;
+        align-items: center;
+        img{
+            margin-right: 10px;
+        }
+    }
+
+}
