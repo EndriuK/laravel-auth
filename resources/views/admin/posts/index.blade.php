@@ -4,7 +4,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h2>Elenco posts</h2>
+                <div class="d-flex my-3">
+                    <h2>Elenco posts</h2>
+                    <a href="{{ route('admin.posts.create') }}" class="btn btn-sm btn-primary">Aggiungi post</a>
+                </div>
             </div>
             <div class="col-12">
                 <table class="table table-striped">
@@ -23,8 +26,8 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->slug }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm-btn-primary">
-                                        <i class="fas fa eye"></i>
+                                    <a href="{{ route('admin.posts.show', ['post' => $post->id]) }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-eye"></i>
                                     </a>
                                 </td>
                             </tr>

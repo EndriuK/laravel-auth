@@ -13,6 +13,8 @@
 
     <main>
         <h1 class="text-center">StitchPress</h1>
+
+        @yield('content')
     </main>
 </body>
 </html>
