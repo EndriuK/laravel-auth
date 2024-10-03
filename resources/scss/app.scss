@@ -5,6 +5,7 @@
 
 header {
     background-color: rgb(80, 80, 213);
+    height: 150px;
 
     .logo {
         display: flex;
@@ -15,4 +16,22 @@ header {
         }
     }
 
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+}
+
+#sidebar {
+    width: 150px;
+    background-color: rgb(80, 80, 213);
+    height: calc(100vh - 150px);
+
+}
+
+#content {
+    margin: 0 10px;
+    width: calc(100vw - 150px);
+    height: calc(100vh - 150px);
+    overflow-y: hidden;
 }
