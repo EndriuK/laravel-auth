@@ -36,7 +36,10 @@
                                         <form action="{{ route('admin.posts.destroy', ['post' => $post->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger delete-post">
+                                            {{-- <button type="submit" class="btn btn-sm btn-danger delete-post" onclick="return confirm('Sei sicuro di voler eliminare questo post?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button> --}}
+                                            <button type="submit" class="btn btn-sm btn-danger delete-post" ">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
@@ -49,4 +52,5 @@
             </div>
         </div>
     </div>
+    @include('admin.posts.partials.modal_delete')
 @endsection
