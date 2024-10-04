@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StorePostRequest extends FormRequest
 {
@@ -27,6 +28,7 @@ class StorePostRequest extends FormRequest
             // 'title' => 'required|unique:posts|max:150',
             'title' => ['required', 'unique:posts', 'unique:posts', 'max:150'],
             'slug' => ['required', 'max:255'],
+            'content' => ['nullable'],
         ];
     }
 

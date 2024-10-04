@@ -79,7 +79,9 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $form_data = $request->validated();
+        $form_data['slug'] = Post::generateSlug($form_data['title']);
         $post->update($form_data);
+
         return redirect()->route('admin.posts.index');
     }
 
