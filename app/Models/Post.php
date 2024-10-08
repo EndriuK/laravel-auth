@@ -14,6 +14,7 @@ class Post extends Model
         'title',
         'content',
         'slug',
+        'cover_image'
     ];
 
     public static function generateSlug($title)
