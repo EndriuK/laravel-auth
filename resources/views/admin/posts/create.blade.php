@@ -23,11 +23,15 @@
                    <div class="row gy-3">
                         <div class="col-12">
                             <label for="title" class="control-label">Titolo</label>
-                            <input type="text" name="title" id="title" class="form-control form-control-sm @error('title')) is-invalid @enderror" placeholder="Inserisci il titolo" value="{{ old('title') }}">
+                            <input type="text" name="title" id="title" class="form-control form-control-sm @error('title')) is-invalid @enderror" placeholder="Inserisci il titolo" value="{{ old('title') }}" required>
                             @error('title')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div> 
+                        <div class="col-12">
+                            <label for="" class="control-label">Immagine copertina</label>
+                            <input type="file" name="cover_image" id="cover_image" class="form-control form-control-sm">
+                        </div>
                         <div class="col-12">
                             <label for="content" class="control-label">Contenuto</label>
                             <textarea name="content" id="content-post" class="form-control form-control-sm" rows="10" cols="30">{{ old('content') }}</textarea>
