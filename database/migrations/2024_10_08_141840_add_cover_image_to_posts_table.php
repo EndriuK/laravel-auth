@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('cover_image')->nullable()->after('slug');
+            $table->string('cover_image')->nullable()->after('slug')->default('https://placehold.co/600x400?text=Immagine+copertina');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            $table->dropColumn('cover_image');
         });
     }
 };
