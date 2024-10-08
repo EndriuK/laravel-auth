@@ -38,6 +38,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+
+        dd($request->all());
         $form_data = $request->validated();
         $slug = Post::generateSlug($form_data['title']);
         $form_data['slug'] = $slug;

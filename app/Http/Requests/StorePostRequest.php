@@ -27,7 +27,8 @@ class StorePostRequest extends FormRequest
         return [
             // 'title' => 'required|unique:posts|max:150',
             'title' => ['required', 'unique:posts', 'unique:posts', 'max:150'],
-            'slug' => ['required', 'max:255'],
+            'slug' => ['max:255'],
+            'cover_image' => ['nullable', 'image', 'max:4084'],
             'content' => ['nullable'],
         ];
     }
@@ -38,6 +39,8 @@ class StorePostRequest extends FormRequest
             'title.required' => 'Il titolo è obbligatorio',
             'title.unique' => 'Il titolo deve essere unico',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
+            'cover_image.image' => 'L\'immagine deve essere un file immagine',
+            'cover_image.size' => 'L\'immagine deve avere massimo: 4084 kb',
             'slug.required' => 'Il post deve avere uno slug. Per far ciò, inserisci il titolo',
             'slug.max' => 'Il link slug deve avere massimo :max caratteri',
         ];
