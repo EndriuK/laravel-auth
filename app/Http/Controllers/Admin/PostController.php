@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -39,10 +40,22 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
 
-        dd($request->all());
         $form_data = $request->validated();
         $slug = Post::generateSlug($form_data['title']);
         $form_data['slug'] = $slug;
+
+        // Verifica se request abbia il file cover_image
+        if ($request->hasFile('cover_image')) {
+
+            // Effetua l'upload del file e salvo il path dell'immagine in una variabile
+            $path = Storage::disk('public')->put('cover_images', $form_data['cover_image']);
+
+            // Assegno il valore contenuto nella variavile alla chiave 'cover_image' di 'form_data'
+            $form_data['cover_image'] = $path;
+        } else {
+            $form_data['cover_image'] = 'https://placehold.co/600x400?text=Immagine+copertina';
+        }
+
         $post = new Post();
         $post->fill($form_data);
         $post->save();
