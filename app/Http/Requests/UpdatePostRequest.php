@@ -28,6 +28,7 @@ class UpdatePostRequest extends FormRequest
             // 'title' => 'required|unique:posts|max:150',
             'title' => ['required', Rule::unique('posts')->ignore($this->route('post')), 'max:150'],
             'slug' => ['max:255'],
+            'cover_image' => ['nullable', 'image', 'max:4084'],
             'content' => ['nullable'],
         ];
     }
@@ -39,6 +40,8 @@ class UpdatePostRequest extends FormRequest
             'title.unique' => 'Il titolo deve essere unico',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
             'slug.max' => 'Il link slug deve avere massimo :max caratteri',
+            'cover_image.image' => 'L\'immagine deve essere un file immagine',
+            'cover_image.max' => 'L\'immagine deve avere massimo: 4084 kb',
         ];
     }
 }

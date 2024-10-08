@@ -30,6 +30,17 @@
                             @enderror
                         </div> 
                         <div class="col-12">
+                            @if (Str::startsWith($post->cover_image, 'https'))
+                                <img class="cover_image" src="{{ $post->cover_image }}" alt="{{ $post->title }}">
+                            @else
+                                <img class="cover_image" src="{{ asset('./storage/'.$post->cover_image)}}" alt="{{ $post->title }}">
+                            @endif
+                            <div class="mt-3">
+                                <label for="" class="control-label">Immagine di copertina</label>
+                                <input type="file" name="cover_image" id="cover_image" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                        <div class="col-12">
                             <label for="content" class="control-label">Contenuto</label>
                             <textarea name="content" id="content-post" class="form-control form-control-sm" rows="10" cols="30">{{ old('content', $post->content) }}</textarea>
                         </div>  
